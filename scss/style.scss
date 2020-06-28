@@ -38,13 +38,14 @@ img {
 	display: none;
 }
 
-h6.button {
+h6.button, .button {
 	display: inline-block;
 	padding: 15px 30px;
 	background: $red1;
 	cursor: pointer;
 	border: 1px solid $red1;
 	transition: background 1s;
+	color: $white1;
 	&:hover {
 		background: $white1;
 		border: 1px solid $red1;
@@ -60,6 +61,19 @@ h6.button {
 		text-transform: uppercase;
 	}
 }
+
+.button {
+	padding: 10px 30px;
+	text-transform: uppercase;
+	&:hover {
+		color: $red1;
+	}
+}
+
+button:focus {
+    outline: none;
+}
+
 h6.link {
 	display: inline-block;
 	margin-bottom: 0;
@@ -319,7 +333,7 @@ body {
 			margin-bottom: 50px;
 		}
 		.image {
-			background-image: url('../images/winter.jpg');
+			background-image: url('../images/muntain.jpg');
 			background-size: cover;
 			height: 100%;
 		}
@@ -628,7 +642,7 @@ footer {
 	}
 }
 
-.button {
+.hamburger {
 	display: none;
 	.bar1, .bar2, .bar3 {
 		width: 35px;
@@ -652,6 +666,33 @@ footer {
 			background-color: $black1;
 		}
 	}
+}
+
+.mixer {
+	text-align: center;
+	.row {
+		.col-md-6 {
+			&:nth-child(2) {
+				text-align: left;
+				a {
+					display: block;
+					margin-bottom: 5px;
+				}
+			}
+			figure {
+				display: inline-block;
+				border: 2px solid $grey1;
+				padding: 5px;
+				max-width: 100%
+			}
+			figcaption {
+				background-color: $red1;
+				color: $white1;
+				padding: 3px;
+			}
+		}
+	}
+	
 }
 
 @media only screen and (max-width: 1200px) {
@@ -687,7 +728,7 @@ footer {
 					}
 				}
 			}
-			.button {
+			.hamburger {
 				right: 78px;
 				position: fixed;
 				z-index: 3;
@@ -715,7 +756,7 @@ footer {
 	body {
 		header {
 			height: initial;
-			.button {
+			.hamburger {
 				right: 15px;
 			} 
 		}
@@ -744,6 +785,7 @@ footer {
 	}
 
 	.content {
+
 		.help {
 			.container-fluid:nth-child(2) .row .col-md-4:nth-child(even) {
 				background-image: none;
@@ -761,6 +803,7 @@ footer {
 				padding-top: 70px;
 			}
 		}
+
 		.who .row {
 			.absolute {
 				position: relative;
@@ -786,6 +829,7 @@ footer {
 				}
 			}
 		}
+
 		.service {
 			.col-md-6:nth-child(2) {
 				padding-left: 15px;
@@ -796,15 +840,20 @@ footer {
 				height: 100%;
 			}
 		}
+
 		.hero {
 			padding: 80px 0;
 			&.reverted .title {
 				margin-left: 0; 
 			}
 			.title {
-				color: #fff;
+				color: $white1;
 				width: 100%;
 			}
+		}
+
+		.quote #logo-background {		
+			top: -19%;
 		}
 
 		.specification {
@@ -812,6 +861,7 @@ footer {
 				img {
 					width: 100%;
 					max-width: 100%;
+					padding: 40px;
 				}
 			}
 			.col-md-7 {
@@ -820,8 +870,6 @@ footer {
 		}
 
 	}
-
-	
 
 	footer {
 		.privacy {

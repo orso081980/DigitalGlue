@@ -42,23 +42,97 @@ $(() => {
 	$('.slider2').slick({
 		slidesToShow: 2,
 		appendArrows: $('.left'),
-		// prevArrow: false,
-		// nextArrow: false,
 		appendArrows: $('.arrow'),
-		// dots: true,
-		// infinite: true,
-		// speed: 500,
-		// slidesToShow: 2,
-		// // slidesToScroll: 1,
-		// appendArrows: $('.left'),
-		// centerMode: true
 	});
 
-	let button = $('.button');
-	let navigation = $('#navigation');
-	button.click(function () {
+	const hamburger = $('.hamburger');
+	const navigation = $('#navigation');
+
+	hamburger.click(function () {
 		$(this).toggleClass("change");
 		navigation.toggleClass("menuentire");
 	});
+
+	const fire = $('#click');
+	const mixerDiv = document.querySelector('.mixer .row');
+
+	fire.click(function(e) {
+
+		var streamName = $('#mixer-username').val();
+		e.preventDefault();
+
+		let mixerAPI = 'https://mixer.com/api/v1/';
+		let apiCall = mixerAPI + 'channels/' + streamName;
+		let beamUrl = 'https://beam.pro/' + streamName;
+		let mixertest = 'https://mixer.com/' + streamName;
+
+		function makeAjaxCall(url, methodType, callback){
+			let str = [];
+			$.ajax({
+				url: url,
+				method:  methodType,
+				dataType: "json",
+				success: callback,
+				error: function (reason, xhr){
+					str += `<p>No user for the moment</p>`;
+					mixerDiv.innerHTML = str;
+				}
+			})
+		}
+		makeAjaxCall(apiCall, "GET", function(respJson) {
+
+			let userDiv = {
+				username: respJson.token,
+				avatar: respJson.user.avatarUrl
+			}
+
+			let str = [];
+
+			if (respJson !== 0 && userDiv.avatar !== null) {
+
+				str += `<div class="col-md-6">
+				<figure>
+				<img src="${respJson.user.avatarUrl}" alt="avatar" />
+				<figcaption>${userDiv.username}</figcaption>
+				</figure>
+				</div>`;
+				mixerDiv.innerHTML = str;
+				let response1 = respJson.id;
+				let streamscall = mixerAPI + "channels/" + response1 + "/recordings";
+				
+				$.ajax({
+					type: 'GET',
+					url: streamscall,
+					type: 'GET',
+					dataType: "json",
+					success: function(data) {
+						
+						let nano = data;
+						if (nano.length !== 0) {
+							str += `<div class="col-md-6 my-auto">`;
+							for (let i = nano.length-1; i >= nano.length-8; i--) {
+								let finalurl = beamUrl + '?vod=' + nano[i].id;
+								let linksandstuff = {
+									name: nano[i].name,
+									link: finalurl
+								};
+								str += `<a target="_blank" href="${linksandstuff.link}">${linksandstuff.name}</p>`;
+							}
+							str += `</div>`;
+							mixerDiv.innerHTML = str;
+						}
+					},
+					error: function (reason, xhr){
+						console.log("error in processing your request",reason);
+					}
+				})
+
+			} else {
+				str += `<p>Incomplete profile</p>`;
+				mixerDiv.innerHTML = str;
+			}
+
+		})
+	})
 
 });
