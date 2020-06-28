@@ -1,3 +1,5 @@
+@import 'font';
+
 $green1: #5fc08b;
 $main-font: 'Montserrat', sans-serif;
 $second-font: 'Open Sans', sans-serif;
@@ -38,6 +40,15 @@ img {
 	display: none;
 }
 
+ul {
+	li {
+		&.active {
+			padding-bottom: 3px;
+			border-bottom: 2px solid $green1;
+		}
+	}
+}
+
 h6.button, .button {
 	display: inline-block;
 	padding: 15px 30px;
@@ -65,6 +76,9 @@ h6.button, .button {
 .button {
 	padding: 10px 30px;
 	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: 1px;
+	font-size: 14px;
 	&:hover {
 		color: $red1;
 	}
@@ -105,7 +119,7 @@ body {
 			font-size: 4em;
 		}
 		position: relative;
-		background-image: url(../images/bison.jpg);
+		background-image: url('../images/bison.jpg');
 		height: 620px;
 		height: 100vh;
 		min-height: 600px;
@@ -237,8 +251,11 @@ body {
 			&:nth-child(2) {
 				.row {
 					.col-md-4:nth-child(even) {
-						background-image: url('../images/laptop.jpg');
-						background-size: cover;
+						.background {
+							background-image: url('../images/laptop.jpg');
+							background-size: cover;
+							height: 105%;
+						}
 					}
 					.col-md-4:nth-child(odd) {
 						div {
@@ -251,8 +268,11 @@ body {
 			&:nth-child(3) {
 				.row {
 					.col-md-4:nth-child(odd) {
-						background-image: url('../images/laptop.jpg');
-						background-size: cover;
+						.background {
+							background-image: url('../images/laptop.jpg');
+							background-size: cover;
+							height: 100%;
+						}
 					}
 					.col-md-4:nth-child(even) {
 						div {
@@ -272,7 +292,7 @@ body {
 		h3 {
 			font-size: 1.4em;
 		}
-		
+
 	}
 
 	.hero {
@@ -616,7 +636,7 @@ footer {
 					}
 				}
 			}
-			
+
 		}
 	}
 }
@@ -697,7 +717,7 @@ footer {
 			}
 		}
 	}
-	
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -740,10 +760,13 @@ footer {
 				display: block;
 				cursor: pointer;
 				top: 46px;
-			}	
+			}
+			ul li.active {
+				border-bottom: none;
+			}
 		}
 	}
-	
+
 
 }
 
@@ -766,7 +789,7 @@ footer {
 			} 
 		}
 	}
-	
+
 	.col-md-5 {
 		-ms-flex: 0 0 100%;
 		flex: 0 0 100%;
@@ -778,7 +801,7 @@ footer {
 		flex: 0 0 100%;
 		max-width: 100%; 
 	}
-	
+
 	.slick-slider {
 		display: none;
 	}
@@ -792,20 +815,28 @@ footer {
 	.content {
 
 		.help {
-			.container-fluid:nth-child(2) .row .col-md-4:nth-child(even) {
-				background-image: none;
+			.container-fluid:nth-child(2) .row {
+				.col-md-4:nth-child(even) {
+					.background {
+						height: 300px;
+						margin-bottom: 40px;
+					}
+				}
+				.col-md-4:nth-child(odd) div {
+					padding: 0!important;
+					padding-top: 70px;
+				}
 			}
 			.container-fluid:nth-child(3) .row {
 				.col-md-4:nth-child(odd) {
-					background-image: none;
+					.background {
+						height: 300px;
+						margin-bottom: 40px;
+					}
 				}
 				.col-md-4:nth-child(even) div {
 					padding: 0;
 				}
-			}
-			.container-fluid:nth-child(2) .row .col-md-4:nth-child(odd) div {
-				padding: 0!important;
-				padding-top: 70px;
 			}
 		}
 
