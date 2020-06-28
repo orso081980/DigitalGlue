@@ -1,4 +1,4 @@
-@import 'font';
+//@import 'font';
 
 $green1: #5fc08b;
 $main-font: 'Montserrat', sans-serif;
@@ -110,22 +110,59 @@ h6.link {
 	padding-right: 0;
 }
 
+
+
 body {
 	* {
 		font-family: $main-font;
 	}
-	header {
-		h1 {
-			font-size: 4em;
-		}
+	.header {
 		position: relative;
 		background-image: url('../images/bison.jpg');
 		height: 620px;
 		height: 100vh;
 		min-height: 600px;
 		background-size: cover;
+		h1 {
+			font-size: 4em;
+		}
+		.title {
+			color: $white1;
+			padding-top: 240px;
+			width: 50%;
+			h1 {
+				text-transform: uppercase;
+				font-weight: 700;
+				margin-bottom: 50px;
+			}
+			h4 {
+				margin-top: 20px;
+				font-weight: 700;
+				text-transform: uppercase;
+				display: inline-block;
+			}
+			hr {
+				width: 94%;
+				height: 4px;
+				background: $green1;
+				margin-left: 6%;
+			}
+		}
+	}
+	header {
 		.h-100 {
 			padding-top: 35px;
+			padding-bottom: 25px;
+		}
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: transparent;
+		z-index: 4;
+		transition: 1s background;
+		&.scroll {
+			background: $blue1;
 		}
 		nav {
 			ul {
@@ -171,28 +208,7 @@ body {
 				}
 			}
 		}
-		.title {
-			color: $white1;
-			margin-top: 13%;
-			width: 50%;
-			h1 {
-				text-transform: uppercase;
-				font-weight: 700;
-				margin-bottom: 50px;
-			}
-			h4 {
-				margin-top: 20px;
-				font-weight: 700;
-				text-transform: uppercase;
-				display: inline-block;
-			}
-			hr {
-				width: 94%;
-				height: 4px;
-				background: $green1;
-				margin-left: 6%;
-			}
-		}
+		
 	}
 }
 
@@ -733,8 +749,10 @@ footer {
 
 @media only screen and (max-width: 1200px) {
 	body {
-		header {
+		.header {
 			height: initial;
+		}
+		header {
 			#navigation {
 				display: none;
 				.mobile {
@@ -804,6 +822,13 @@ footer {
 			.hamburger {
 				right: 15px;
 			} 
+		}
+		.header {
+			.title {
+				padding-top: 160px;
+				width: 100%;
+				padding-bottom: 160px;
+			}
 		}
 	}
 

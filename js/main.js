@@ -53,6 +53,18 @@ $(() => {
 		navigation.toggleClass("menuentire");
 	});
 
+	const header = $('header');
+
+	window.onscroll = function () {
+		
+		let scrollTop = $(window).scrollTop();
+		if (scrollTop > header.height()) {
+			header.addClass('scroll');
+		} else {
+			header.removeClass('scroll');
+		}
+	}
+
 	const fire = $('#click');
 	const mixerDiv = document.querySelector('.mixer');
 	
