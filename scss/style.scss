@@ -71,7 +71,7 @@ h6.button, .button {
 }
 
 button:focus {
-    outline: none;
+	outline: none;
 }
 
 h6.link {
@@ -281,7 +281,6 @@ body {
 		padding: 250px 0 100px;
 		.title {
 			color: $white1;
-			// padding-top: 15%;
 			width: 50%;
 			h2 {
 				text-align: left;
@@ -670,6 +669,11 @@ footer {
 
 .mixer {
 	text-align: center;
+	h3 {
+		color: $white1;
+		padding: 30px;
+		text-transform: uppercase;
+	}
 	.row {
 		.col-md-6 {
 			&:nth-child(2) {
@@ -686,6 +690,7 @@ footer {
 				max-width: 100%
 			}
 			figcaption {
+				font-style: italic;
 				background-color: $red1;
 				color: $white1;
 				padding: 3px;
@@ -835,9 +840,8 @@ footer {
 				padding-left: 15px;
 			}
 			.image {
-				background-image: none;
-				background-size: cover;
-				height: 100%;
+				height: 500px;
+				margin-bottom: 80px;
 			}
 		}
 
@@ -852,9 +856,15 @@ footer {
 			}
 		}
 
-		.quote #logo-background {		
-			top: -19%;
-		}
+		.quote {
+			.container div {
+				text-align: center;
+				padding: 0;
+			}
+			#logo-background {		
+				top: -19%;
+			}
+		} 
 
 		.specification {
 			.col-md-4 {
@@ -872,6 +882,9 @@ footer {
 	}
 
 	footer {
+		.form {
+			margin-bottom: 35px;
+		}
 		.privacy {
 			margin-top: 0;
 			.container>.row:nth-child(1)>.col-md-6:nth-child(1) {
@@ -885,7 +898,7 @@ footer {
 
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 600px) {
 	.container-fluid {
 		max-width: 540px;
 	}
