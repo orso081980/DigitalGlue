@@ -252,7 +252,7 @@ body {
 				.row {
 					.col-md-4:nth-child(even) {
 						.background {
-							background-image: url('../images/laptop.jpg');
+							background-image: url('../images/back2.jpg');
 							background-size: cover;
 							height: 105%;
 						}
@@ -267,9 +267,16 @@ body {
 			}
 			&:nth-child(3) {
 				.row {
-					.col-md-4:nth-child(odd) {
+					.col-md-4:nth-child(1) {
 						.background {
-							background-image: url('../images/laptop.jpg');
+							background-image: url('../images/back1.jpg');
+							background-size: cover;
+							height: 100%;
+						}
+					}
+					.col-md-4:nth-child(3) {
+						.background {
+							background-image: url('../images/back3.jpg');
 							background-size: cover;
 							height: 100%;
 						}
@@ -455,7 +462,7 @@ body {
 				}
 				&:nth-child(2) {
 					.image {
-						background-image: url('../images/people1.png');
+						background-image: url('../images/people1.jpg');
 						height: 100%;
 						background-repeat: no-repeat;
 					}
@@ -483,7 +490,7 @@ body {
 				left: 4%;
 				right: 0;
 				top: 53%;
-				z-index: 0;
+				z-index: 1;
 			}
 		}
 	}
@@ -532,8 +539,12 @@ body {
 	.sponsors {
 		text-align: center;
 		padding: 120px 0;
-		img {
+		.sponsor {
 			margin-bottom: 100px;
+			margin-top: 100px;
+			img {
+				max-width: 16.1%
+			}
 		}
 	}
 }
@@ -779,6 +790,12 @@ footer {
 	}
 }
 
+@media only screen and (max-width: 991px) {
+	.content .who .row .absolute {
+		top: 37%;
+	}
+}
+
 @media only screen and (max-width: 767px) {
 
 	body {
@@ -907,6 +924,17 @@ footer {
 			}
 			.col-md-7 {
 				display: none;
+			}
+		}
+
+		.sponsors {
+			.sponsor {
+				margin-bottom: 40px;
+				margin-top: 0;
+				img {
+					max-width: 100%;
+					width: 50%;
+				}
 			}
 		}
 
