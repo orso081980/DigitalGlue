@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -17,7 +18,7 @@
 					<a href="#"><img src="images/logo.svg" alt="logo" width="140"></a>
 				</div>
 				<div class="col-md-7 my-auto">
-					<div class="button">
+					<div class="hamburger">
 						<div class="bar1"></div>
 						<div class="bar2"></div>
 						<div class="bar3"></div>
@@ -275,7 +276,7 @@
 							<label for="email">Your mixer username</label>
 							<input type="text" class="form-control" id="mixer-username" placeholder="Mixer Username" required data-parsley-required-message="Please insert your username">
 						</div>
-						<button type="submit" class="btn">Submit</button>
+						<button type="submit" class="button" id="click">Submit</button>
 					</form>
 				</div>
 				<div class="col-md-3">
@@ -290,7 +291,11 @@
 				</div>
 			</div>
 		</div>
-
+		<div class="container">
+			<div class="mixer">
+				<div class="row h-100"></div>
+			</div>
+		</div>
 		<div class="privacy">
 			<div class="container">
 				<div class="row">
